@@ -1,14 +1,22 @@
 <!-- BEGIN_TF_DOCS -->
-# Default example
+# All subscriptions
 
-Onboard MDC plans for a single subscription.
+Onboard MDC plans for all subscriptions where your account holds owner permissions.
 
 ```hcl
-module "mdc_plans_enable" {
-  source           = "../.."
-  mdc_plans_list   = var.mdc_plans_list
-  subplans         = var.subplans
-  enable_telemetry = var.enable_telemetry
+data "azurerm_subscriptions" "available" {}
+
+locals {
+  list_of_subscriptions = data.azurerm_subscriptions.available.subscriptions[*].subscription_id
+}
+
+resource "local_file" "generate_main_terraform_file" {
+  filename = "${path.module}/output/main.tf"
+  content = templatefile("resolv.conf.tftpl", {
+    list_of_subscriptions = local.list_of_subscriptions
+    mdc_plans_list        = jsonencode(var.mdc_plans_list)
+    subplans              = jsonencode(var.subplans)
+  })
 }
 ```
 
@@ -21,11 +29,14 @@ The following requirements are needed by this module:
 
 - <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (>= 3.7.0, < 4.0)
 
-- <a name="requirement_modtm"></a> [modtm](#requirement\_modtm) (>= 0.1.8, < 1.0)
+- <a name="requirement_local"></a> [local](#requirement\_local) (2.3.0)
 
 ## Resources
 
-No resources.
+The following resources are used by this module:
+
+- [local_file.generate_main_terraform_file](https://registry.terraform.io/providers/hashicorp/local/2.3.0/docs/resources/file) (resource)
+- [azurerm_subscriptions.available](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscriptions) (data source)
 
 <!-- markdownlint-disable MD013 -->
 ## Required Inputs
@@ -35,14 +46,6 @@ No required inputs.
 ## Optional Inputs
 
 The following input variables are optional (have default values):
-
-### <a name="input_enable_telemetry"></a> [enable\_telemetry](#input\_enable\_telemetry)
-
-Description: n/a
-
-Type: `bool`
-
-Default: `false`
 
 ### <a name="input_mdc_plans_list"></a> [mdc\_plans\_list](#input\_mdc\_plans\_list)
 
@@ -88,25 +91,11 @@ Default:
 
 ## Outputs
 
-The following outputs are exported:
-
-### <a name="output_plans_details"></a> [plans\_details](#output\_plans\_details)
-
-Description: All plans details
-
-### <a name="output_subscription_pricing_id"></a> [subscription\_pricing\_id](#output\_subscription\_pricing\_id)
-
-Description: The subscription pricing ID
+No outputs.
 
 ## Modules
 
-The following Modules are called:
-
-### <a name="module_mdc_plans_enable"></a> [mdc\_plans\_enable](#module\_mdc\_plans\_enable)
-
-Source: ../..
-
-Version:
+No modules.
 
 <!-- markdownlint-disable-next-line MD041 -->
 ## Data Collection

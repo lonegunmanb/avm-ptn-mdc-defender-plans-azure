@@ -1,3 +1,3 @@
 # Default example
 
-This deploys the module in its simplest form.
+Onboard MDC plans for a single subscription.
