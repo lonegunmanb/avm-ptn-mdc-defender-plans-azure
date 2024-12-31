@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo  $ARM_TENANT_ID
+echo  $ARM_SUBSCRIPTION_ID
+echo  $ARM_CLIENT_ID
+echo  $ARM_OIDC_REQUEST_TOKEN
+echo  $ARM_OIDC_REQUEST_URL
+echo $ARM_USE_OIDC
+
 # Check if ARM_SUBSCRIPTION_ID is set
 if [ -z "$ARM_SUBSCRIPTION_ID" ]; then
   echo "You need to set the ARM_SUBSCRIPTION_ID environment variable to run this script."
