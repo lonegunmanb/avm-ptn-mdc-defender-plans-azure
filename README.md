@@ -97,7 +97,13 @@ The following resources are used by this module:
 <!-- markdownlint-disable MD013 -->
 ## Required Inputs
 
-No required inputs.
+The following input variables are required:
+
+### <a name="input_location"></a> [location](#input\_location)
+
+Description: The location/region where the policy should exist.
+
+Type: `string`
 
 ## Optional Inputs
 
@@ -128,14 +134,6 @@ If it is set to false, then no telemetry will be collected.
 Type: `bool`
 
 Default: `true`
-
-### <a name="input_location"></a> [location](#input\_location)
-
-Description: (Optional) The location/region where the policy should exist.
-
-Type: `string`
-
-Default: `"West Europe"`
 
 ### <a name="input_mdc_databases_plans"></a> [mdc\_databases\_plans](#input\_mdc\_databases\_plans)
 
