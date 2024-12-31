@@ -1,3 +1,8 @@
+variable "location" {
+  type        = string
+  description = "The location/region where the policy should exist."
+}
+
 variable "default_subplan" {
   type        = string
   default     = null
@@ -20,12 +25,6 @@ For more information see <https://aka.ms/avm/telemetryinfo>.
 If it is set to false, then no telemetry will be collected.
 DESCRIPTION
   nullable    = false
-}
-
-variable "location" {
-  type        = string
-  default     = "West Europe"
-  description = "(Optional) The location/region where the policy should exist."
 }
 
 variable "mdc_databases_plans" {
