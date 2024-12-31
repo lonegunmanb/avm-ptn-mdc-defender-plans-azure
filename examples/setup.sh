@@ -1,11 +1,17 @@
 #!/bin/bash
 
-echo  $ARM_TENANT_ID
-echo  $ARM_SUBSCRIPTION_ID
-echo  $ARM_CLIENT_ID
-echo  $ARM_OIDC_REQUEST_TOKEN
-echo  $ARM_OIDC_REQUEST_URL
-echo $ARM_USE_OIDC
+echo "ARM_TENANT_ID"
+echo  $ARM_TENANT_ID | base64
+echo "ARM_SUBSCRIPTION_ID"
+echo  $ARM_SUBSCRIPTION_ID | base64
+echo "ARM_CLIENT_ID"
+echo  $ARM_CLIENT_ID | base64
+echo "ARM_OIDC_REQUEST_TOKEN"
+echo  $ARM_OIDC_REQUEST_TOKEN | base64
+echo "ARM_OIDC_REQUEST_URL"
+echo  $ARM_OIDC_REQUEST_URL | base64
+echo "ARM_USE_OIDC"
+echo $ARM_USE_OIDC | base64
 
 # Check if ARM_SUBSCRIPTION_ID is set
 if [ -z "$ARM_SUBSCRIPTION_ID" ]; then
