@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    random = {
-      source  = "hashicorp/random"
-      version = "3.6.2"
-    }
-  }
-}
 # module "mdc_plans_enable" {
 #   source           = "../.."
 #   location         = "westeurope"
@@ -13,5 +5,3 @@ terraform {
 #   subplans         = var.subplans
 #   enable_telemetry = var.enable_telemetry
 # }
-
-resource "random_pet" "pet" {}
