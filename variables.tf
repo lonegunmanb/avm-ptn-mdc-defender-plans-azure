@@ -1,6 +1,7 @@
 variable "location" {
   type        = string
   description = "The location/region where the policy should exist."
+  nullable    = false
 }
 
 variable "default_subplan" {
