@@ -20,7 +20,7 @@
 
     run-e2e-tests:
       if: github.event.pull_request.head.repo.fork == false
-      uses: lonegunmanb/terraform-azurerm-avm-template/.github/workflows/test-examples-template.yml@705e289949192a2a308e4562d82a7a523140752f
+      uses: lonegunmanb/terraform-azurerm-avm-template/.github/workflows/test-examples-template.yml@78f8aed9615888bfeb5fed70b462aa807e18612f
       name: end to end
       secrets: inherit
       permissions:
