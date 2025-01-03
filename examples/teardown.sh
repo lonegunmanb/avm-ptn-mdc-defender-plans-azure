@@ -1,5 +1,6 @@
 #!/bin/bash
 
+exit 1
 # Check if ARM_SUBSCRIPTION_ID is set
 if [ -z "$ARM_SUBSCRIPTION_ID" ]; then
   echo "You need to set the ARM_SUBSCRIPTION_ID environment variable to run this script."
